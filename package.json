@@ -12,7 +12,7 @@
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
-    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
+    "lint": "eslint .",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
@@ -20,7 +20,8 @@
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "paint-dep": "depcruise --include-only '^src' --output-type dot src | dot -T svg > dependencygraph.svg",
     "check-dep": "depcruise --config .dependency-cruiser.js src",
-    "prepare": "husky"
+    "prepare": "husky",
+    "pre-commit": "npm run lint && npm run check-dep"
   },
   "dependencies": {
     "@nestjs/common": "^10.0.0",
